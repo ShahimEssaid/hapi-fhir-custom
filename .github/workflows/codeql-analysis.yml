@@ -8,7 +8,7 @@ on:
 
 jobs:
   CodeQL-Build:
-
+    if: github.repository == 'hapifhir/hapi-fhir'
     runs-on: ubuntu-latest
 
     steps:

@@ -1,0 +1,14 @@
+name: "Deploying custom builds"
+
+on:
+   push:
+      branches:
+         - master
+
+jobs:
+   build-custom:
+      runs-on: ubuntu-latest
+
+      steps:
+         - name: Hello world
+           run: echo Hello world
