@@ -3,7 +3,7 @@
 			xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>ca.uhn.hapi.fhir</groupId>
+	<groupId>com.essaid.fhir.hapi</groupId>
 	<artifactId>hapi-fhir</artifactId>
 	<packaging>pom</packaging>
 	<version>6.0.0-PRE13-SNAPSHOT</version>
@@ -1999,10 +1999,10 @@
 							<version>8.43</version>
 						</dependency>
                         <dependency>
-                            <groupId>ca.uhn.hapi.fhir</groupId>
+                            <groupId>${project.groupId}</groupId>
                             <artifactId>hapi-fhir-checkstyle</artifactId>
 									<!-- Remember to bump this when you upgrade the version -->
-                            <version>6.0.0-PRE13-SNAPSHOT</version>
+                            <version>${project.version}</version>
                         </dependency>
 					</dependencies>
 				</plugin>
@@ -3020,5 +3020,230 @@
 			</build>
 		</profile>
 
+		<profile>
+			<id>_custom</id>
+			<dependencyManagement>
+				<dependencies>
+					<!--			Needed to redirect these transitive dependencies to the new groupid-->
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.utilities</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.convertors</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.dstu2</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.dstu3</artifactId>
+						<version>${fhir_core_version}</version>
+						<scope>compile</scope>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.dstu2016may</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.r4</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<!-- SE: Needed for DIST profile in hapi-fhir-structures-r4 causing classpath duplicates -->
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.r4</artifactId>
+						<version>${fhir_core_version}</version>
+						<scope>provided</scope>
+						<classifier>javadoc</classifier>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.r5</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>ca.uhn.hapi.fhir</groupId>
+						<artifactId>org.hl7.fhir.validation</artifactId>
+						<version>${fhir_core_version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-base</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>org.opencds.cqf.cql</groupId>
+						<artifactId>engine.fhir</artifactId>
+						<version>${cql-engine.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-dstu2</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-dstu3</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-hl7org-dstu2</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-r4</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-r5</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-client</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>org.opencds.cqf.cql</groupId>
+						<artifactId>evaluator.engine</artifactId>
+						<version>${cql-evaluator.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-client</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+
+					<dependency>
+						<groupId>org.opencds.cqf.cql</groupId>
+						<artifactId>evaluator.fhir</artifactId>
+						<version>${cql-evaluator.version}</version>
+						<exclusions>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-dstu3</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-r4</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-structures-r5</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-validation-resources-dstu3</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-validation-resources-r4</artifactId>
+							</exclusion>
+							<exclusion>
+								<groupId>ca.uhn.hapi.fhir</groupId>
+								<artifactId>hapi-fhir-validation-resources-r5</artifactId>
+							</exclusion>
+						</exclusions>
+					</dependency>
+				</dependencies>
+			</dependencyManagement>
+		</profile>
+		<profile>
+			<id>PACKAGE_TESTS</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-jar-plugin</artifactId>
+						<executions>
+							<execution>
+								<goals>
+									<goal>test-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>test-jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
 	</profiles>
 </project>
