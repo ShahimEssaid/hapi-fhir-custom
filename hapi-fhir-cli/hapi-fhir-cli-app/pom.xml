@@ -4,7 +4,7 @@
 	<!-- Note: HAPI projects use the "hapi-fhir" POM as their base to provide easy management. You do not need to use this in your own projects, so the "parent" tag 
 		and it's contents below may be removed if you are using this file as a basis for your own project. -->
 	<parent>
-		<groupId>ca.uhn.hapi.fhir</groupId>
+		<groupId>com.essaid.fhir.hapi</groupId>
 		<artifactId>hapi-fhir-cli</artifactId>
 		<version>6.0.0-PRE13-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
@@ -18,26 +18,26 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-cli-api</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-cli-jpaserver</artifactId>
 			<version>${project.version}</version>
 			<type>war</type>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-cli-jpaserver</artifactId>
 			<version>${project.version}</version>
 			<type>jar</type>
 			<classifier>classes</classifier>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-testpage-overlay</artifactId>
 			<version>${project.version}</version>
 			<classifier>classes</classifier>
@@ -68,7 +68,7 @@
 						<configuration>
 							<artifactItems>
 								<artifactItem>
-									<groupId>ca.uhn.hapi.fhir</groupId>
+									<groupId>${project.groupId}</groupId>
 									<artifactId>hapi-fhir-cli-jpaserver</artifactId>
 									<type>war</type>
 									<overWrite>true</overWrite>

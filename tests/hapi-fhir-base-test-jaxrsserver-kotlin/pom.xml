@@ -4,7 +4,7 @@
 	<!-- Note: HAPI projects use the "hapi-fhir" POM as their base to provide easy management. You do not need to use this in your own projects, so the "parent" tag and it's contents below may be removed
 		if you are using this file as a basis for your own project. -->
 	<parent>
-		<groupId>ca.uhn.hapi.fhir</groupId>
+		<groupId>com.essaid.fhir.hapi</groupId>
 		<artifactId>hapi-fhir</artifactId>
 		<version>6.0.0-PRE13-SNAPSHOT</version>
 		<relativePath>../../pom.xml</relativePath>
@@ -29,22 +29,22 @@
 
 		<!-- This dependency includes the core HAPI-FHIR classes -->
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-jaxrsserver-base</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-structures-dstu2</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-structures-dstu3</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-structures-r4</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -80,7 +80,7 @@
 			<artifactId>logback-classic</artifactId>
 		</dependency>
 	  <dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-test-utilities</artifactId>
 			<version>${project.version}</version>
 			<scope>test</scope>

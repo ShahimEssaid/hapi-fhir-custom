@@ -19,19 +19,19 @@
 			<useTransitiveDependencies>true</useTransitiveDependencies>
 			<useTransitiveFiltering>true</useTransitiveFiltering>
 			<includes>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-base</include>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-utilities</include>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-android</include>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-structures-dstu2</include>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-structures-dstu3</include>
-				<include>ca.uhn.hapi.fhir:hapi-fhir-structures-r4</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-base</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-utilities</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-android</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-structures-dstu2</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-structures-dstu3</include>
+				<include>com.essaid.fhir.hapi:hapi-fhir-structures-r4</include>
 			</includes>
 			<excludes>
 				<exclude>*:*:sources</exclude>
 				<exclude>*:*:javadoc</exclude>
-				<exclude>ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu2</exclude>
-				<exclude>ca.uhn.hapi.fhir:hapi-fhir-validation-resources-dstu3</exclude>
-				<exclude>ca.uhn.hapi.fhir:hapi-fhir-validation-resources-r4</exclude>
+				<exclude>com.essaid.fhir.hapi:hapi-fhir-validation-resources-dstu2</exclude>
+				<exclude>com.essaid.fhir.hapi:hapi-fhir-validation-resources-dstu3</exclude>
+				<exclude>com.essaid.fhir.hapi:hapi-fhir-validation-resources-r4</exclude>
 				<exclude>org.codehaus.woodstox:woodstox-core-asl</exclude>
 				<exclude>javax.xml.stream:stax-api</exclude>
 				<exclude>org.codehaus.woodstox:stax2-api</exclude>

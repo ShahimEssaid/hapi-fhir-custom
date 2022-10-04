@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>ca.uhn.hapi.fhir</groupId>
+		<groupId>com.essaid.fhir.hapi</groupId>
 		<artifactId>hapi-deployable-pom</artifactId>
 		<version>6.0.0-PRE13-SNAPSHOT</version>
 		<relativePath>../hapi-deployable-pom/pom.xml</relativePath>
@@ -29,7 +29,7 @@
 			<artifactId>commons-dbcp2</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>ca.uhn.hapi.fhir</groupId>
+			<groupId>${project.groupId}</groupId>
 			<artifactId>hapi-fhir-base</artifactId>
 			<version>${project.version}</version>
 		</dependency>
@@ -135,7 +135,7 @@
 					</archive>
 					<overlays>
 						<overlay>
-							<groupId>ca.uhn.hapi.fhir</groupId>
+							<groupId>${project.groupId}</groupId>
 							<artifactId>hapi-fhir-testpage-overlay</artifactId>
 						</overlay>
 					</overlays>

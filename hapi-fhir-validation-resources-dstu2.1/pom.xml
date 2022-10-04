@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>ca.uhn.hapi.fhir</groupId>
+		<groupId>com.essaid.fhir.hapi</groupId>
 		<artifactId>hapi-deployable-pom</artifactId>
 		<version>6.0.0-PRE13-SNAPSHOT</version>
 		<relativePath>../hapi-deployable-pom/pom.xml</relativePath>
@@ -31,7 +31,7 @@
                         <_removeheaders>Built-By, Include-Resource, Private-Package, Require-Capability</_removeheaders>
                         <!-- No need to disable normal OSGi class loading
 						<Fragment-Host>
-							ca.uhn.hapi.fhir.hapi-fhir-base
+							${project.groupId}.hapi-fhir-base
 						</Fragment-Host>
 						-->
                         <!-- maven-bundle-plugin does not generate
